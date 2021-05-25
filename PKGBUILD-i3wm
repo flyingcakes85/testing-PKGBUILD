@@ -7,7 +7,7 @@ arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
 source=("https://github.com/endeavouros-team/endeavouros-i3wm-setup")
-sha512sums=('')
+sha512sums=('SKIP')
 
 prepare() {
 git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup
