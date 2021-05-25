@@ -6,21 +6,19 @@ pkgdesc='Default EndeavourOS i3 config files'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=("https://github.com/endeavouros-team/endeavouros-i3wm-setup")
+source=('git+https://github.com/endeavouros-team/endeavouros-i3wm-setup.git')
 sha512sums=('SKIP')
 
 prepare() {
-git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup
-cd endeavouros-i3wm-setup
-cp -R .config $srcdir/skel/
-cp .gtkrc-2.0 $srcdir/skel/
-cp .nanorc $srcdir/skel/
-cp xed.dconf $srcdir/skel/
-cd ..
+mkdir $srcdir/skel/ $srcdir/skel/.config
+cp -R $srcdir/endeavouros-i3wm-setup/.config $srcdir/skel/
+cp $srcdir/endeavouros-i3wm-setup/.gtkrc-2.0 $srcdir/skel/
+cp $srcdir/endeavouros-i3wm-setup/.nanorc $srcdir/skel/
+cp $srcdir/endeavouros-i3wm-setup/xed.dconf $srcdir/skel/
 rm -R endeavouros-i3wm-setup
 }
 
 package() {
     install -dm 755 $pkgdir/etc/skel
-    cp -r --no-preserve=ownership endeavouros-i3-config/skel $pkgdir/etc/skel
+    cp -r --no-preserve=ownership $srcdir/skel $pkgdir/etc/
 }
