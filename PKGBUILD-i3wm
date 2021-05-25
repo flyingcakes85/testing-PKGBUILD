@@ -12,15 +12,15 @@ sha512sums=('')
 prepare() {
 git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup
 cd endeavouros-i3wm-setup
-cp -R .config $srcdir
-cp .gtkrc-2.0 $srcdir
-cp .nanorc $srcdir
-cp xed.dconf $srcdir
+cp -R .config $srcdir/skel/
+cp .gtkrc-2.0 $srcdir/skel/
+cp .nanorc $srcdir/skel/
+cp xed.dconf $srcdir/skel/
 cd ..
 rm -R endeavouros-i3wm-setup
 }
 
 package() {
     install -dm 755 $pkgdir/etc/skel
-    cp -r --no-preserve=ownership endeavouros-i3-config $pkgdir/etc/skel/
+    cp -r --no-preserve=ownership endeavouros-i3-config/skel $pkgdir/etc/skel
 }
