@@ -10,12 +10,12 @@ source=('git+https://github.com/endeavouros-team/endeavouros-i3wm-setup.git')
 sha512sums=('SKIP')
 
 prepare() {
+chmod -R +x $srcdir/endeavouros-i3wm-setup/.config/i3/scripts
 mkdir $srcdir/skel/ $srcdir/skel/.config
 cp -R $srcdir/endeavouros-i3wm-setup/.config $srcdir/skel/
 cp $srcdir/endeavouros-i3wm-setup/.gtkrc-2.0 $srcdir/skel/
 cp $srcdir/endeavouros-i3wm-setup/.nanorc $srcdir/skel/
 cp $srcdir/endeavouros-i3wm-setup/xed.dconf $srcdir/skel/
-rm -R endeavouros-i3wm-setup
 }
 
 package() {
