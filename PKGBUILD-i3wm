@@ -1,24 +1,16 @@
 # Maintainer: joekamprad    <joekamprad@endeavouros.com>
-pkgname=endeavouros-i3-config
+pkgname=endeavouros-ce-WM
 pkgver=1.1
-pkgrel=1
-pkgdesc='Default EndeavourOS i3 config files'
+pkgrel=2
+pkgdesc='Default EndeavourOS Community Edition WM config files'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=('git+https://github.com/endeavouros-team/endeavouros-i3wm-setup.git')
-sha512sums=('SKIP')
-
-prepare() {
-chmod -R +x $srcdir/endeavouros-i3wm-setup/.config/i3/scripts
-mkdir $srcdir/skel/ $srcdir/skel/.config
-cp -r $srcdir/endeavouros-i3wm-setup/.config $srcdir/skel/
-cp $srcdir/endeavouros-i3wm-setup/.gtkrc-2.0 $srcdir/skel/
-cp $srcdir/endeavouros-i3wm-setup/.nanorc $srcdir/skel/
-cp $srcdir/endeavouros-i3wm-setup/xed.dconf $srcdir/skel/
-}
+source=("${pkgname}-${pkgver}.${pkgrel}.tar.gz::https://github.com/endeavouros-team/${pkgname}/archive/${pkgver}.${pkgrel}.tar.gz")
+sha512sums=('')
 
 package() {
     install -dm 755 $pkgdir/etc/skel
-    cp -r --no-preserve=ownership $srcdir/skel $pkgdir/etc/
+    cp -r --no-preserve=ownership ${pkgname}-${pkgver}.${pkgrel}/etc/skel $pkgdir/etc/
 }
+
