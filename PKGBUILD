@@ -1,12 +1,12 @@
-# Maintainer: joekamprad    <joekamprad@endeavouros.com>
+# Maintainer: name    <mail@domain.org>
 pkgname=endeavouros-ce-WM
-pkgver=1.1
-pkgrel=2
+pkgver=1.0
+pkgrel=1
 pkgdesc='Default EndeavourOS Community Edition WM config files'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
-source=("${pkgname}-${pkgver}.${pkgrel}.tar.gz::https://github.com/endeavouros-team/${pkgname}/archive/${pkgver}.${pkgrel}.tar.gz")
+source=("${pkgname}-${pkgver}.${pkgrel}.tar.gz::https://github.com/EndeavourOS-Community-Editions/${pkgname}/archive/${pkgver}.${pkgrel}.tar.gz")
 sha512sums=('')
 
 package() {
