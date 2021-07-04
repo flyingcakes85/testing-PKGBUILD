@@ -1,8 +1,8 @@
 # Maintainer: name    <mail@domain.org>
-pkgname=endeavouros-ce-xfce-i3
+pkgname=endeavouros-ce-xfce4-i3
 pkgver=1.0
 pkgrel=1
-pkgdesc='Default EndeavourOS Community Edition xfce-i3 config files'
+pkgdesc='Default EndeavourOS Community Edition xfce4-i3 config files'
 arch=('any')
 url='https://www.endeavouros.com'
 license=('GPL3')
