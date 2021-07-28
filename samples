@@ -1,0 +1,35 @@
+made by https://github.com/The-Repo-Club
+https://termbin.com/gcwc
+
+```
+# Maintainer: The-Repo-Club <The-Repo-Club@github.com>
+# Contributor: The-Repo-Club <The-Repo-Club@github.com>
+
+_pkgname=bspwm
+pkgname=bspwm-configs
+pkgver=2021.07.03
+pkgrel=1
+pkgdesc="A CLI system information tool written in BASH that supports displaying images."
+arch=('any')
+groups=('EndeavourOS')
+url="https://github.com/EndeavourOS-Community-Editions/${pkgname}"
+license=('MIT')
+depends=()
+makedepends=()
+optdepends=()
+source=("${_pkgname}-$pkgver::git+https://github.com/EndeavourOS-Community-Editions/${_pkgname}.git")
+sha256sums=('SKIP')
+
+package() {
+    PREFIX=/etc/skel
+    cd "$_pkgname-$pkgver"
+    mkdir -p "${pkgdir}${PREFIX}/.config/"
+    cp -R ".config/" "${pkgdir}${PREFIX}/"
+    install -D ".gtkrc-2.0" "${pkgdir}${PREFIX}/.gtkrc-2.0"
+    install -D "setup.sh" "${pkgdir}${PREFIX}/setup.sh"
+    install -D "xed.dconf" "${pkgdir}${PREFIX}/xed.dconf"
+    install -D "bspwm-install.sh" "${pkgdir}${PREFIX}/bspwm-install.sh"
+    install -D "IosevkaTermNerdFontComplete.ttf" "${pkgdir}${PREFIX}/IosevkaTermNerdFontComplete.ttf"
+    install -D "LICENSE" "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE.md"
+}
+```
