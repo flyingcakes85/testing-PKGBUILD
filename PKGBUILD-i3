@@ -4,7 +4,7 @@
 
 _pkgname=endeavouros-i3wm-setup
 pkgname=endeavouros-i3wm-setup
-pkgver=1
+pkgver=r134.bef442b
 pkgrel=1
 pkgdesc="setup for i3-wm under EndeavourOS"
 arch=('any')
