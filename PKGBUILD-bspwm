@@ -1,0 +1,35 @@
+# Maintainer: killajoe <archlinux@kamprad.net>
+# Contributor: killajoe <archlinux@kamprad.net>
+# Contributor: The-Repo-Club <The-Repo-Club@github.com>
+# Contributor: Snehit Sah <snehitsah@protonmail.com>
+
+_pkgname=bspwm
+pkgname=bspwm-configs
+pkgver=r138.962be95
+pkgrel=1
+pkgdesc="CE Configs for a tiling window manager based on binary space partitioning"
+arch=('any')
+groups=('EndeavourOS')
+url="https://github.com/EndeavourOS-Community-Editions/${pkgname}"
+license=('GPL')
+depends=('git')
+source=("${_pkgname}::git+https://github.com/EndeavourOS-Community-Editions/${_pkgname}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    PREFIX=/etc/skel
+    cd "$_pkgname"
+    mkdir -p "${pkgdir}${PREFIX}/.config/"
+    chmod +x .config/bspwm/bspwmrc
+    chmod +x .config/polybar/*
+    cp -R ".config/" "${pkgdir}${PREFIX}/"
+    install -Dm644 ".gtkrc-2.0" "${pkgdir}${PREFIX}/.gtkrc-2.0"
+    install -Dm644 "xed.dconf" "${pkgdir}${PREFIX}/xed.dconf"
+    install -Dm644 "IosevkaTermNerdFontComplete.ttf" "${pkgdir}${PREFIX}/.local/share/fonts/IosevkaTermNerdFontComplete.ttf"
+}
+
